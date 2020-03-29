@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'front.middlewares.front_user_middleware'
 ]
 
 ROOT_URLCONF = 'icbc.urls'
@@ -121,4 +122,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 

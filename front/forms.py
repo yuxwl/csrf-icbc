@@ -23,3 +23,7 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['email','password']
+
+class TransferForm(forms.Form):
+    email = forms.CharField(max_length=100)
+    money = forms.FloatField()
