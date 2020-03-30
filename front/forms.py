@@ -27,5 +27,3 @@ class LoginForm(forms.ModelForm):
 class TransferForm(forms.Form):
     email = forms.CharField(max_length=100)
     money = forms.FloatField()
-
-#测试
