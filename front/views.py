@@ -72,4 +72,3 @@ class TransferView(View):
 def logout(request):
     request.session.flush()
     return redirect(reverse('index'))
-
