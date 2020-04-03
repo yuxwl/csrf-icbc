@@ -50,7 +50,7 @@ class RegisterView(View):
 @method_decorator(login_required,name='dispatch')
 class TransferView(View):
     def get(self, request):
-        return render(request, 'transfer.html')
+        return render(request, 'transfer_ajax.html')
 
     def post(self, request):
         form = TransferForm(request.POST)

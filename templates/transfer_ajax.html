@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中国工商银行-转账</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'myajax.js' %}"></script>
+    <script>
+        $(function() {
+            //指定id为submit才触发此动作
+            $("#submit").click(function(event){
+                event.preventDefault();
+                var email = $("input[name='email']").val();
+                var money = $("input[name='money']").val();
+                myajax.post({
+                    'url':'/transfer/',
+                    'data':{
+                        'email':email,
+                        'money':money,
+                    },
+                    // 如果状态码是等于200才会走到success的回调中
+                    'success':function (data) {
+                        console.log(data);
+                    },
+                    'fail':function(error){
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+<h1>中国工商银行-转账</h1>
+    <table>
+        <tbody>
+            <tr>
+                <td>转给：</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td>金额：</td>
+                <td><input type="text" name="money"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" id="submit" value="确认提交"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
